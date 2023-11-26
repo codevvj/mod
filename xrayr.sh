@@ -22,28 +22,14 @@ read -p " NODE ID Cổng 443: " node_id1
 read -p " NODE ID Cổng 80: " node_id2
   [ -z "${node_id2}" ] && node_id2=0
 
-cd /etc/XrayR
+cd /etc/Aiko-Server
 
 
-cat >config.yml <<EOF
-Log:
-  Level: none # Log level: none, error, warning, info, debug 
-  AccessPath: # /etc/XrayR/access.Log
-  ErrorPath: # /etc/XrayR/error.log
-DnsConfigPath: # /etc/XrayR/dns.json # Path to dns config, check https://xtls.github.io/config/dns.html for help
-RouteConfigPath: # /etc/XrayR/route.json # Path to route config, check https://xtls.github.io/config/routing.html for help
-InboundConfigPath: # /etc/XrayR/custom_inbound.json # Path to custom inbound config, check https://xtls.github.io/config/inbound.html for help
-OutboundConfigPath: # /etc/XrayR/custom_outbound.json # Path to custom outbound config, check https://xtls.github.io/config/outbound.html for help
-ConnectionConfig:
-  Handshake: 4 # Handshake time limit, Second
-  ConnIdle: 86400 # Connection idle time limit, Second
-  UplinkOnly: 2 # Time limit when the connection downstream is closed, Second
-  DownlinkOnly: 4 # Time limit when the connection is closed after the uplink is closed, Second
-  BufferSize: 64 # The internal cache size of each connection, kB
+cat >aiko.yml <<EOF
 Nodes:
-  - PanelType: "AikoPanel" # Panel type: AikoPanel, AikoPanelv2
+  - PanelType: "AikoPanelv2" # Panel type: AikoPanel, AikoPanelv2
     ApiConfig:
-      ApiHost: "https://ben4g.com"
+      ApiHost: "https://ban4g.com"
       ApiKey: "zenpn_zenpn_zenpn_zenpn"
       NodeID: $node_id1
       NodeType: Trojan # Node type: V2ray, Shadowsocks, Trojan
@@ -59,9 +45,8 @@ Nodes:
         CertMode: none # Option about how to get certificate: none, file
         CertFile: /etc/Aiko-Server/cert/aiko_server.cert # Provided if the CertMode is file
         KeyFile: /etc/Aiko-Server/cert/aiko_server.key
-  -
-    Nodes:
-  - PanelType: "AikoPanel" # Panel type: AikoPanel, AikoPanelv2
+
+  - PanelType: "AikoPanelv2" # Panel type: AikoPanel, AikoPanelv2
     ApiConfig:
       ApiHost: "https://ban4g.com"
       ApiKey: "zenpn_zenpn_zenpn_zenpn"
