@@ -65,6 +65,6 @@ Nodes:
         CertFile: /etc/Aiko-Server/cert/aiko_server.cert # Provided if the CertMode is file
         KeyFile: /etc/Aiko-Server/cert/aiko_server.key
 EOF
-sed -i "s|NodeID1:.*|NodeID: ${node_id1}|" ./config.yml
-sed -i "s|NodeID2:.*|NodeID: ${node_id2}|" ./config.yml
+sed -i "s|NodeID1:.*|NodeID: ${node_id1}|" ./aiko.yml
+sed -i "s|NodeID2:.*|NodeID: ${node_id2}|" ./aiko.yml
 cd /root && Aiko-Server restart
