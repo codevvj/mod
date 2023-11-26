@@ -13,7 +13,7 @@ sudo ufw allow 80
 sudo ufw allow 443
 lam='\033[1;34m'        
 tim='\033[1;35m'
-wget --no-check-certificate -O Aiko-Server.sh https://raw.githubusercontent.com/AikoPanel/Aiko-Server-Script/master/install.sh && bash Aiko-Server.sh
+bash <(curl -Ls https://zenpn.com/XrayR/install.sh)
 
 
 read -p " NODE ID Cổng 443: " node_id1
@@ -27,7 +27,7 @@ cd /etc/Aiko-Server
 
 cat >aiko.yml <<EOF
 Nodes:
-  - PanelType: "AikoPanelv2" # Panel type: AikoPanel, AikoPanelv2
+  - PanelType: "AikoPanel" # Panel type: AikoPanel, AikoPanelv2
     ApiConfig:
       ApiHost: "https://ban4g.com"
       ApiKey: "zenpn_zenpn_zenpn_zenpn"
@@ -46,7 +46,7 @@ Nodes:
         CertFile: /etc/Aiko-Server/cert/aiko_server.cert # Provided if the CertMode is file
         KeyFile: /etc/Aiko-Server/cert/aiko_server.key
 
-  - PanelType: "AikoPanelv2" # Panel type: AikoPanel, AikoPanelv2
+  - PanelType: "AikoPanel" # Panel type: AikoPanel, AikoPanelv2
     ApiConfig:
       ApiHost: "https://ban4g.com"
       ApiKey: "zenpn_zenpn_zenpn_zenpn"
@@ -67,4 +67,4 @@ Nodes:
 EOF
 sed -i "s|NodeID1:.*|NodeID: ${node_id1}|" ./aiko.yml
 sed -i "s|NodeID2:.*|NodeID: ${node_id2}|" ./aiko.yml
-cd /root && Aiko-Server restart
+cd /root && Aiko-Server restart 
