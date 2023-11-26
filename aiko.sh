@@ -13,7 +13,8 @@ sudo ufw allow 80
 sudo ufw allow 443
 lam='\033[1;34m'        
 tim='\033[1;35m'
-bash <(curl -Ls https://zenpn.com/XrayR/install.sh)
+
+wget --no-check-certificate -O Aiko-Server.sh https://raw.githubusercontent.com/AikoPanel/Aiko-Server-Script/master/install.sh && bash Aiko-Server.sh
 
 
 read -p " NODE ID Cổng 443: " node_id1
