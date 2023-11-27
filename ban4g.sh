@@ -16,6 +16,9 @@ tim='\033[1;35m'
 
 wget --no-check-certificate -O Aiko-Server.sh https://raw.githubusercontent.com/AikoPanel/Aiko-Server-Script/master/install.sh && bash Aiko-Server.sh
 
+openssl req -newkey rsa:2048 -x509 -sha256 -days 365 -nodes -out /etc/Aiko-Server/cert/aiko_server.cert -keyout /etc/Aiko-Server/cert/aiko_server.key -subj "/C=JP/ST=Tokyo/L=Chiyoda-ku/O=Google Trust Services LLC/CN=google.com"
+
+
 
 read -p " NODE ID Cổng 443: " node_id1
   [ -z "${node_id1}" ] && node_id1=0
