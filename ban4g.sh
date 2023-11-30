@@ -70,6 +70,6 @@ Nodes:
 EOF
 sed -i "s|NodeID1:.*|NodeID: ${node_id1}|" ./aiko.yml
 sed -i "s|NodeID2:.*|NodeID: ${node_id2}|" ./aiko.yml
-cd /root && Aiko-Server restart 
+cd /root
 aiko-server cert
 
